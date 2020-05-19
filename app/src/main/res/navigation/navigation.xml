@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/home_fragment">
+
+
+    <fragment
+        android:id="@+id/home_fragment"
+        android:name="com.example.usahaku.home_fragment"
+        android:label="home_fragment"
+        tools:layout="@layout/home_fragment">
+        <action
+            android:id="@+id/action_home_fragment_to_profiletoko"
+            app:destination="@+id/profiletoko" />
+        <action
+            android:id="@+id/action_home_fragment_to_frag_produk"
+            app:destination="@id/frag_produk" />
+    </fragment>
+    <fragment
+        android:id="@+id/profiletoko"
+        android:name="com.example.usahaku.profiletoko"
+        android:label="fragment_profiletoko"
+        tools:layout="@layout/fragment_profiletoko" />
+    <fragment
+        android:id="@+id/frag_produk"
+        android:name="com.example.usahaku.Frag_produk"
+        android:label="fragment_produk"
+        tools:layout="@layout/fragment_produk" >
+        <action
+            android:id="@+id/action_frag_produk_to_tambahproduk"
+            app:destination="@id/tambahproduk" />
+    </fragment>
+    <fragment
+        android:id="@+id/tambahproduk"
+        android:name="com.example.usahaku.tambahproduk"
+        android:label="fragment_tambahproduk"
+        tools:layout="@layout/fragment_tambahproduk" >
+        <action
+            android:id="@+id/action_tambahproduk_to_frag_produk"
+            app:destination="@id/frag_produk" />
+    </fragment>
+
+
+</navigation>
