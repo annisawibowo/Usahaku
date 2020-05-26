@@ -39,6 +39,9 @@ class home_fragment : Fragment() {
         view.findViewById<ImageView>(R.id.produkhome).setOnClickListener{
             view.findNavController().navigate(R.id.action_home_fragment_to_frag_produk)
         }
+        view.findViewById<ImageButton>(R.id.buttonpelanggan).setOnClickListener{
+            view.findNavController().navigate(R.id.action_home_fragment_to_fragment_pelanggan)
+        }
     }
 
 

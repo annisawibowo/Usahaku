@@ -35,5 +35,24 @@ interface Produkdao {
     fun getAllproduk(): LiveData<List<produk>>
 
 }
+@Dao
+interface Pelanggandao {
+
+    @Insert
+    fun insert(pelanggan: pelanggan)
+
+    @Update
+    fun update(pelanggan: pelanggan)
+
+    @Delete
+    fun delete(pelanggan: pelanggan)
+
+    @Query("DELETE FROM tabel_pelanggan")
+    fun deleteAllpelanggan()
+
+    @Query("SELECT * FROM tabel_pelanggan")
+    fun getAllpelanggan(): LiveData<List<pelanggan>>
+
+}
 
 

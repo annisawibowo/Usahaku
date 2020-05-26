@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_home_fragment_to_frag_produk"
             app:destination="@id/frag_produk" />
+        <action
+            android:id="@+id/action_home_fragment_to_fragment_pelanggan"
+            app:destination="@id/fragment_pelanggan" />
     </fragment>
     <fragment
         android:id="@+id/profiletoko"
@@ -41,6 +44,22 @@
         <action
             android:id="@+id/action_tambahproduk_to_frag_produk"
             app:destination="@id/frag_produk" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_pelanggan"
+        android:name="com.example.usahaku.fragment_pelanggan"
+        android:label="fragment_pelanggan" >
+        <action
+            android:id="@+id/action_fragment_pelanggan_to_fragment_tambahpelanggan"
+            app:destination="@id/fragment_tambahpelanggan" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_tambahpelanggan"
+        android:name="com.example.usahaku.fragment_tambahpelanggan"
+        android:label="fragment_tambahpelanggan" >
+        <action
+            android:id="@+id/action_fragment_tambahpelanggan_to_fragment_pelanggan"
+            app:destination="@id/fragment_pelanggan" />
     </fragment>
 
 

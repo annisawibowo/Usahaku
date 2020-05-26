@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -8,8 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@drawable/a9"
-        tools:context="com.example.usahaku.tambahproduk">
+        tools:context="com.example.usahaku.fragment_tambahpelanggan"
+        android:background="@drawable/a9">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -22,11 +23,11 @@
 
                 <ImageView
                     android:id="@+id/imageView"
-                    android:layout_marginTop="30dp"
-                    android:layout_width="90dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ic_produk" />
+                    android:src="@drawable/ic_pelanggan" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -40,6 +41,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="24dp"
+
                     app:cardBackgroundColor="@color/mtrl_on_primary_disabled">
 
                     <LinearLayout
@@ -50,10 +52,10 @@
 
                         <TextView
                             android:id="@+id/textView"
+                            style="@style/TextAppearance.Usaha.Text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Nama Produk"
-                            style="@style/TextAppearance.Usaha.Text"/>
+                            android:text="Nama Pelanggan" />
 
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
@@ -61,36 +63,37 @@
 
                             <com.google.android.material.textfield.TextInputEditText
 
-                                android:id="@+id/nama_produk"
+                                android:id="@+id/namapelanggan"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@color/textInputOutlineColor"/>
+                                android:background="@color/textInputOutlineColor" />
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <TextView
                             android:id="@+id/textView2"
+                            style="@style/TextAppearance.Usaha.Text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Deskripsi Produk"
-                            style="@style/TextAppearance.Usaha.Text"/>
+                            android:text="Email" />
 
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
                             <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/deskproduk"
+                                android:id="@+id/emailpelanggan"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@color/textInputOutlineColor"/>
+                                android:background="@color/textInputOutlineColor"
+                                android:inputType="textEmailAddress"/>
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <TextView
                             android:id="@+id/textView3"
+                            style="@style/TextAppearance.Usaha.Text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Harga Pokok"
-                            style="@style/TextAppearance.Usaha.Text"/>
+                            android:text="Nomer Telepon" />
 
                         <com.google.android.material.textfield.TextInputLayout
 
@@ -98,74 +101,36 @@
                             android:layout_height="wrap_content">
 
                             <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/hargapokok"
+                                android:id="@+id/notelppel"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:inputType="number"
-                                android:background="@color/textInputOutlineColor"/>
+                                android:background="@color/textInputOutlineColor"
+                                android:inputType="number" />
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <TextView
+                            style="@style/TextAppearance.Usaha.Text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Harga Jual"
-                            style="@style/TextAppearance.Usaha.Text"/>
+                            android:text="Alamat" />
 
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
                             <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/hargajual"
+                                android:id="@+id/alamatpelanggan"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:background="@color/textInputOutlineColor"
                                 android:hint=""
-                                android:inputType="number"
-                                android:background="@color/textInputOutlineColor"/>
+                               />
                         </com.google.android.material.textfield.TextInputLayout>
 
-                        <TextView
-                            android:id="@+id/textView4"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Jumlah"
-                            style="@style/TextAppearance.Usaha.Text"/>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal">
-
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:layout_width="100dp"
-                                android:layout_height="wrap_content"
-                                android:hint="Jumlah">
-
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/jumlahproduk"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-
-                                    android:background="@color/textInputOutlineColor"/>
-                            </com.google.android.material.textfield.TextInputLayout>
-
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Satuan"
-                                >
-
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/satuan"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-
-                                    android:background="@color/textInputOutlineColor"/>
-                            </com.google.android.material.textfield.TextInputLayout>
-                        </LinearLayout>
 
                         <Button
-                            android:id="@+id/saveproduk"
+                            android:id="@+id/savepelanggan"
                             style="@style/Widget.Usaha.Button"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"

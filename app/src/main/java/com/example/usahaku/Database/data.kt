@@ -25,3 +25,32 @@ data class produk(
     @PrimaryKey(autoGenerate = true)
     var id_produk: Int = 0
 }
+@Entity
+    (tableName = "tabel_pelanggan")
+data class pelanggan(
+    var namapelanggan: String,
+    var emailpelanggan: String,
+    var alamatpelanggan: String,
+    var notelppelanggan: String)
+   {
+    @PrimaryKey(autoGenerate = true)
+    var id_pelanggan: Int = 0
+}
+
+@Entity
+    (tableName = "tabel_penjualan")
+data class penjualan(
+    var namapelanggan: String,
+    var namaproduk: String,
+    var tanggaljual: String,
+    var jumlahproduk: Int,
+    var totalpembayaran:Int)
+{
+    @PrimaryKey(autoGenerate = true) var id_penjualan: Int = 0
+    @PrimaryKey(autoGenerate = false) var id_pelanggan: Int = 0
+    @PrimaryKey(autoGenerate = false) var id_produk: Int = 0
+    @PrimaryKey(autoGenerate = false) var namatransaksi : String = ""
+
+
+}
+

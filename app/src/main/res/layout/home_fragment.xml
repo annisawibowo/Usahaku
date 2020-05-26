@@ -5,30 +5,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
     <androidx.constraintlayout.widget.ConstraintLayout
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".home_fragment">
+        tools:context=".home_fragment"
+        android:background="@drawable/a5">
         <ImageView
             android:id="@+id/bg"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
             android:clickable="true"
+            android:layout_marginTop="58dp"
             app:layout_constraintBottom_toTopOf="@+id/produkhome"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/ic_launcher_background"
+            app:srcCompat="@drawable/ic_logo2"
             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:fontFamily="@font/moon"
+            android:text="@string/app_name"
+            android:textAppearance="@style/TextAppearance.Usaha.Title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bg" />
 
         <ImageButton
             android:id="@+id/tokoprofile"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="68dp"
-            android:background="@android:drawable/screen_background_light_transparent"
+            android:layout_marginTop="98dp"
             android:clickable="true"
             app:layout_constraintEnd_toStartOf="@+id/produkhome"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,20 +49,18 @@
             android:id="@+id/produkhome"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="68dp"
+            android:layout_marginTop="98dp"
             android:layout_marginEnd="75dp"
-            android:background="@android:drawable/screen_background_light_transparent"
             android:clickable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bg"
             app:srcCompat="@drawable/ic_produkhome" />
 
         <ImageButton
-            android:id="@+id/imageView5"
+            android:id="@+id/buttonpelanggan"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="55dp"
-            android:background="@android:drawable/screen_background_light_transparent"
             android:clickable="true"
             app:layout_constraintEnd_toStartOf="@+id/imageView6"
             app:layout_constraintStart_toStartOf="parent"
@@ -69,7 +77,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/produkhome"
             app:layout_constraintVertical_bias="0.154"
-            app:srcCompat="@drawable/ic_cs" />
+            app:srcCompat="@drawable/ic_info"/>
+
+        <ImageButton
+            android:id="@+id/imageView7"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="400dp"
+            android:layout_marginEnd="155dp"
+            android:clickable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bg"
+            app:srcCompat="@drawable/ic_pengeluaran" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

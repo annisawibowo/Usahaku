@@ -104,7 +104,7 @@ class Frag_produk : Fragment() {
         )}
     private fun judul() {
         val getActivity = this.requireActivity() as MainActivity
-        getActivity.supportActionBar?.title = "Barber Shop"
+        getActivity.supportActionBar?.title = "List Produk"
     }
 
 
