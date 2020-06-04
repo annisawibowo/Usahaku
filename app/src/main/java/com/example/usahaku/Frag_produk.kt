@@ -18,6 +18,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.usahaku.Database.penjualan
 import com.example.usahaku.Database.produk
 import com.example.usahaku.Database.produkviewmodel
 import com.example.usahaku.databinding.FragmentProdukBinding
@@ -26,7 +27,10 @@ import kotlinx.android.synthetic.main.fragment_produk.*
 @Suppress("UNUSED_ANONYMOUS_PARAMETER")
 class Frag_produk : Fragment() {
 
+    var keyp = "Pembelian"
     private lateinit var binding: FragmentProdukBinding
+    var KEY_FRG1 = "msg_fragment"
+
    // private lateinit var produkviewmodel: produkviewmodel
 
 
@@ -42,7 +46,13 @@ class Frag_produk : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        if (arguments != null) {
+            var nama = arguments?.getString("rayproduk")
+            if (nama != null){
+                Toast.makeText(context,nama[1].toString(),Toast.LENGTH_SHORT).show()
+            }
 
+        }
         rv_produk.layoutManager = LinearLayoutManager(this.requireContext())
         rv_produk.setHasFixedSize(true)
         val adapter = produkadapter()
@@ -85,23 +95,58 @@ class Frag_produk : Fragment() {
         ).attachToRecyclerView(rv_produk)
         adapter.setOnItemClickListener(object : produkadapter.OnItemClickListener {
             override fun onItemClick(produk:produk) {
-                val bundle = Bundle()
-                bundle.putInt(tambahproduk.EXTRA_ID, produk.id_produk)
-                bundle.putString(tambahproduk.EXTRA_NAMA, produk.namaproduk)
-                bundle.putString(tambahproduk.EXTRA_DESKRIPSI, produk.deskproduk)
-                bundle.putInt(tambahproduk.EXTRA_JUAL, produk.hargajual)
-                bundle.putInt(tambahproduk.EXTRA_HARGA, produk.hargapokok)
-                bundle.putInt(tambahproduk.EXTRA_JUMLAH, produk.jumlah)
-                bundle.putString(tambahproduk.EXTRA_SATUAN, produk.satuanproduk)
 
-                when(view.id){
-                    R.id.listitemproduk -> {
-                        view.findNavController().navigate(R.id.action_home_fragment_to_profiletoko)
+                if (arguments != null) {
+                    var pesan = arguments?.getString(keyp)
+                    if(pesan != null){//pembelian
+                        val bundle = Bundle()
+                        bundle.putString("namaproduk", produk.namaproduk)
+                        bundle.putString("deskproduk", produk.deskproduk)
+                        bundle.putInt("hargajual", produk.hargajual)
+                        bundle.putInt("hargapokok", produk.hargapokok)
+                        bundle.putInt("jumlah", produk.jumlah)
+                        bundle.putString("satuan", produk.satuanproduk)
+
+
+                        val Produk = produk(produk.namaproduk,produk.deskproduk,produk.hargapokok,produk.hargajual,produk.jumlah,produk.satuanproduk)
+
+                        fragdialog_pilproduk(Produk).show(childFragmentManager,"")
                     }
+                    else{ //penjualan
+                        val bundle = Bundle()
+                        bundle.putInt("id", produk.id_produk)
+                        bundle.putString("namaproduk", produk.namaproduk)
+                        bundle.putString("deskproduk", produk.deskproduk)
+                        bundle.putInt("hargajual", produk.hargajual)
+                        bundle.putInt("hargapokok", produk.hargapokok)
+                        bundle.putInt("jumlah", produk.jumlah)
+                        bundle.putString("satuan", produk.satuanproduk)
+
+
+                        val Produk = produk(produk.namaproduk,produk.deskproduk,produk.hargapokok,produk.hargajual,produk.jumlah,produk.satuanproduk)
+                        Produk.id_produk = produk.id_produk
+                        fragdialog_pilproduk(Produk).show(childFragmentManager,"")
+                    }
+
+
+                }//argument
+                else{//update
+                    val bundle = Bundle()
+                    bundle.putInt("id", produk.id_produk)
+                    bundle.putString("namaproduk", produk.namaproduk)
+                    bundle.putString("deskproduk", produk.deskproduk)
+                    bundle.putInt("hargajual", produk.hargajual)
+                    bundle.putInt("hargapokok", produk.hargapokok)
+                    bundle.putInt("jumlah", produk.jumlah)
+                    bundle.putString("satuan", produk.satuanproduk)
+
+                    view.findNavController().navigate(R.id.action_frag_produk_to_tambahproduk,bundle)
                 }
+
                         }
-        }
-        )}
+        })
+
+    }
     private fun judul() {
         val getActivity = this.requireActivity() as MainActivity
         getActivity.supportActionBar?.title = "List Produk"

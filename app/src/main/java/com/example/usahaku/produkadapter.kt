@@ -50,7 +50,7 @@ class produkadapter : ListAdapter<produk, produkadapter.produkHolder>(DIFF_CALLB
         }
         var textViewnama: TextView = itemView.nama_produk
         var textViewhargajual: TextView = itemView.hargajual
-        var textViewjumlah: TextView = itemView.jumlahproduk
+        var textViewjumlah: TextView = itemView.jumlah
         var textViewsatuan: TextView = itemView.satuan
 
     }

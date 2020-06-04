@@ -13,20 +13,21 @@
         android:label="home_fragment"
         tools:layout="@layout/home_fragment">
         <action
-            android:id="@+id/action_home_fragment_to_profiletoko"
-            app:destination="@+id/profiletoko" />
-        <action
             android:id="@+id/action_home_fragment_to_frag_produk"
             app:destination="@id/frag_produk" />
         <action
             android:id="@+id/action_home_fragment_to_fragment_pelanggan"
             app:destination="@id/fragment_pelanggan" />
+        <action
+            android:id="@+id/action_home_fragment_to_fragment_penjualan"
+            app:destination="@id/fragment_penjualan" />
+        <action
+            android:id="@+id/action_home_fragment_to_frag_supplier"
+            app:destination="@id/frag_supplier" />
+        <action
+            android:id="@+id/action_home_fragment_to_fragment_pembelian"
+            app:destination="@id/fragment_pembelian" />
     </fragment>
-    <fragment
-        android:id="@+id/profiletoko"
-        android:name="com.example.usahaku.profiletoko"
-        android:label="fragment_profiletoko"
-        tools:layout="@layout/fragment_profiletoko" />
     <fragment
         android:id="@+id/frag_produk"
         android:name="com.example.usahaku.Frag_produk"
@@ -35,16 +36,15 @@
         <action
             android:id="@+id/action_frag_produk_to_tambahproduk"
             app:destination="@id/tambahproduk" />
+        <action
+            android:id="@+id/action_frag_produk_to_fragdialog_pilproduk"
+            app:destination="@id/fragdialog_pilproduk" />
     </fragment>
     <fragment
         android:id="@+id/tambahproduk"
         android:name="com.example.usahaku.tambahproduk"
         android:label="fragment_tambahproduk"
-        tools:layout="@layout/fragment_tambahproduk" >
-        <action
-            android:id="@+id/action_tambahproduk_to_frag_produk"
-            app:destination="@id/frag_produk" />
-    </fragment>
+        tools:layout="@layout/fragment_tambahproduk" />
     <fragment
         android:id="@+id/fragment_pelanggan"
         android:name="com.example.usahaku.fragment_pelanggan"
@@ -52,15 +52,65 @@
         <action
             android:id="@+id/action_fragment_pelanggan_to_fragment_tambahpelanggan"
             app:destination="@id/fragment_tambahpelanggan" />
+
     </fragment>
     <fragment
         android:id="@+id/fragment_tambahpelanggan"
         android:name="com.example.usahaku.fragment_tambahpelanggan"
-        android:label="fragment_tambahpelanggan" >
+        android:label="fragment_tambahpelanggan" />
+    <fragment
+        android:id="@+id/fragment_tambahjual"
+        android:name="com.example.usahaku.fragment_tambahjual"
+        android:label="fragment_tambahjual" >
         <action
-            android:id="@+id/action_fragment_tambahpelanggan_to_fragment_pelanggan"
-            app:destination="@id/fragment_pelanggan" />
+            android:id="@+id/action_fragment_tambahjual_to_frag_produk"
+            app:destination="@id/frag_produk" />
     </fragment>
+    <dialog
+        android:id="@+id/fragdialog_pilproduk"
+        android:name="com.example.usahaku.fragdialog_pilproduk"
+        android:label="fragdialog_pilproduk" />
+    <fragment
+        android:id="@+id/fragment_penjualan"
+        android:name="com.example.usahaku.fragment_penjualan"
+        android:label="fragment_penjualan" >
+        <action
+            android:id="@+id/action_fragment_penjualan_to_fragment_tambahjual"
+            app:destination="@id/fragment_tambahjual" />
+        <action
+            android:id="@+id/action_fragment_penjualan_to_fragdialog_upjual"
+            app:destination="@id/fragdialog_upjual" />
+    </fragment>
+    <fragment
+        android:id="@+id/frag_supplier"
+        android:name="com.example.usahaku.frag_supplier"
+        android:label="fragment_supplier"
+        tools:layout="@layout/fragment_supplier" >
+        <action
+            android:id="@+id/action_frag_supplier_to_frag_tambahsupplier"
+            app:destination="@id/frag_tambahsupplier" />
+    </fragment>
+    <fragment
+        android:id="@+id/frag_tambahsupplier"
+        android:name="com.example.usahaku.frag_tambahsupplier"
+        android:label="fragment_tambahsupplier"
+        tools:layout="@layout/fragment_tambahsupplier" />
+    <fragment
+        android:id="@+id/frag_tambahpembelian"
+        android:name="com.example.usahaku.frag_tambahpembelian"
+        android:label="frag_tambahpembelian" />
+    <fragment
+        android:id="@+id/fragment_pembelian"
+        android:name="com.example.usahaku.fragment_pembelian"
+        android:label="fragment_pembelian" >
+        <action
+            android:id="@+id/action_fragment_pembelian_to_frag_tambahpembelian"
+            app:destination="@id/frag_tambahpembelian" />
+    </fragment>
+    <dialog
+        android:id="@+id/fragdialog_upjual"
+        android:name="com.example.usahaku.fragdialog_upjual"
+        android:label="fragdialog_upjual" />
 
 
 </navigation>

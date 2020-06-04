@@ -41,16 +41,58 @@ data class pelanggan(
     (tableName = "tabel_penjualan")
 data class penjualan(
     var namapelanggan: String,
-    var namaproduk: String,
+    var produk: String,
     var tanggaljual: String,
-    var jumlahproduk: Int,
     var totalpembayaran:Int)
 {
     @PrimaryKey(autoGenerate = true) var id_penjualan: Int = 0
-    @PrimaryKey(autoGenerate = false) var id_pelanggan: Int = 0
-    @PrimaryKey(autoGenerate = false) var id_produk: Int = 0
-    @PrimaryKey(autoGenerate = false) var namatransaksi : String = ""
 
+}
+@Entity
+    (tableName = "tabel_tempproduk")
+ class tempproduk(
+    var namaprodukbeli: String,
+    var hargasatuanbeli: Int,
+    var hargatot: Int,
+    var jumlahbeli: Int,
+    var satuanprodukbeli: String)
+{
+    @PrimaryKey(autoGenerate = true) var id_temp: Int = 0
+
+}
+@Entity
+    (tableName = "tabel_supplier")
+data class supplier(
+    var namasupplier: String,
+    var desksupplier: String,
+    var emailsupplier : String,
+   var notelpsup : String,
+    var alamatsup : String)
+{
+    @PrimaryKey(autoGenerate = true) var id_supplier: Int = 0
+
+}
+@Entity
+    (tableName = "tabel_pembelian")
+data class pembelian(
+    var namasupplierp: String,
+    var produkdes: String,
+    var tanggalpesan: String,
+    var totalpembelian:Int )
+{
+    @PrimaryKey(autoGenerate = true) var id_pembelian: Int = 0
 
 }
 
+@Entity
+    (tableName = "tabel_temppesproduk")
+class temppesproduk(
+    var namaprodukpesbeli: String,
+    var hargasatuanpesbeli: Int,
+    var hargapestot: Int,
+    var jumlahpesbeli: Int,
+    var satuanpesprodukbeli: String)
+{
+    @PrimaryKey(autoGenerate = true) var id_temppes: Int = 0
+
+}

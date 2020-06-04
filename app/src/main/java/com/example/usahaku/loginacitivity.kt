@@ -18,7 +18,10 @@ class loginacitivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_loginacitivity)
-
+        btnsignup.setOnClickListener{
+            startActivity(Intent(this,signup::class.java))
+            finish()
+        }
     btnLogin.setOnClickListener{
         val email = inputEmail.text.toString()
         val password = inputPassword.text.toString()

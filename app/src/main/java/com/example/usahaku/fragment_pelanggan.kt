@@ -26,7 +26,7 @@ import kotlinx.android.synthetic.main.fragment_produk.*
 @Suppress("UNUSED_ANONYMOUS_PARAMETER")
 class fragment_pelanggan : Fragment() {
     // TODO: Rename and change types of parameters
-
+    var KEY_FRG = "msg_fragment2"
     private lateinit var binding: FragPelangganBinding
     // private lateinit var produkviewmodel: produkviewmodel
 
@@ -44,10 +44,15 @@ class fragment_pelanggan : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val msg = arguments?.getString(KEY_FRG)
+
+
         rv_pelanggan.layoutManager = LinearLayoutManager(this.requireContext())
         rv_pelanggan.setHasFixedSize(true)
         val adapter = pelangganadapter()
         rv_pelanggan.adapter = adapter
+
+        //Toast.makeText(activity,msg+"<-nih apa",Toast.LENGTH_LONG).show() ///BISA ANJAYYY PAKE BUNDLE DIBELAKANG ACTION_WHI WEHFI
 
         var pelangganviewmodel: pelangganviewmodel = ViewModelProviders.of(this).get(pelangganviewmodel::class.java)
         pelangganviewmodel.getAllpelanggan() .observe(this.viewLifecycleOwner, Observer <List<pelanggan>>{
@@ -76,10 +81,12 @@ class fragment_pelanggan : Fragment() {
                         .setMessage("Ingin Dihapus ?")
                         .setPositiveButton("Ya", DialogInterface.OnClickListener(){ dialogInterface, i ->
                             pelangganviewmodel.delete(adapter.getpelangganAt(viewHolder.adapterPosition))
+
                             Toast.makeText(activity, "Pelanggan dihapus!", Toast.LENGTH_SHORT).show()
                         })
                         .setNegativeButton("Tidak", DialogInterface.OnClickListener { dialogInterface, i ->
-                            Toast.makeText(activity, "Pelanggan Tidak Terhapus", Toast.LENGTH_LONG).show()
+                            Toast.makeText(activity, "Pelanggan Tidak Terhapus", Toast.LENGTH_SHORT).show()
+
                             adapter.notifyItemChanged(viewHolder.adapterPosition)
                         })
                         .show()
@@ -88,20 +95,34 @@ class fragment_pelanggan : Fragment() {
         ).attachToRecyclerView(rv_pelanggan)
         adapter.setOnItemClickListener(object : pelangganadapter.OnItemClickListener {
             override fun onItemClick(pelanggan: pelanggan) {
-                val bundle = Bundle()
-              //  bundle.putInt(tambahproduk.EXTRA_ID, produk.id_produk)
-               // bundle.putString(tambahproduk.EXTRA_NAMA, produk.namaproduk)
-              //  bundle.putString(tambahproduk.EXTRA_DESKRIPSI, produk.deskproduk)
-               // bundle.putInt(tambahproduk.EXTRA_JUAL, produk.hargajual)
-              //  bundle.putInt(tambahproduk.EXTRA_HARGA, produk.hargapokok)
-              //  bundle.putInt(tambahproduk.EXTRA_JUMLAH, produk.jumlah)
-               // bundle.putString(tambahproduk.EXTRA_SATUAN, produk.satuanproduk)
+                if (arguments != null) {
+                    val bundle = Bundle()
+                    bundle.putString("namapelanggan", pelanggan.namapelanggan)
+                    when (view.id) {
+                        R.id.listpelanggan -> {
+                            view.findNavController().navigate(
+                                R.id.fragment_tambahjual, bundle)
 
-                when(view.id){
-                    R.id.listitemproduk -> {
-                       // view.findNavController().navigate(R.id.action_home_fragment_to_profiletoko)
+                        }
+
                     }
+
+
+
+
                 }
+                else{
+                    val bundle = Bundle()
+                    // bundle.putString(tambahproduk.EXTRA_NAMA, produk.namaproduk)
+                    //  bundle.putString(tambahproduk.EXTRA_DESKRIPSI, produk.deskproduk)
+                    // bundle.putInt(tambahproduk.EXTRA_JUAL, produk.hargajual)
+                    //  bundle.putInt(tambahproduk.EXTRA_HARGA, produk.hargapokok)
+                    //  bundle.putInt(tambahproduk.EXTRA_JUMLAH, produk.jumlah)
+                    // bundle.putString(tambahproduk.EXTRA_SATUAN, produk.satuanproduk)
+                    // view.findNavController().navigate(R.id.action_home_fragment_to_profiletoko)
+                }
+
+
             }
         }
         )}
@@ -109,7 +130,10 @@ class fragment_pelanggan : Fragment() {
         val getActivity = this.requireActivity() as MainActivity
         getActivity.supportActionBar?.title = "List Pelanggan"
     }
+private fun getBundle(){
 
+
+}
 
 
 

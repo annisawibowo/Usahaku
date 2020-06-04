@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.usahaku.Database.pelanggan
 import com.example.usahaku.Database.pelangganviewmodel
 import com.example.usahaku.databinding.FragTambahpelangganBinding
@@ -43,7 +44,8 @@ class fragment_tambahpelanggan : Fragment() {
                 ///ANJAY KALO INTEGER GIMANA NGAMBILNYA .tostring.toint
             )
             pelangganviewmodel.insert(newpelanggan)
-            view.findNavController().navigate(R.id.action_fragment_tambahpelanggan_to_fragment_pelanggan)
+            //this.dismiss()
+            this.findNavController().popBackStack()
         }
     }
 

@@ -33,15 +33,24 @@ class home_fragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        view.findViewById<ImageButton>(R.id.tokoprofile).setOnClickListener{
-            view.findNavController().navigate(R.id.action_home_fragment_to_profiletoko)
-        }
+
+
         view.findViewById<ImageView>(R.id.produkhome).setOnClickListener{
             view.findNavController().navigate(R.id.action_home_fragment_to_frag_produk)
         }
         view.findViewById<ImageButton>(R.id.buttonpelanggan).setOnClickListener{
             view.findNavController().navigate(R.id.action_home_fragment_to_fragment_pelanggan)
         }
+        view.findViewById<ImageButton>(R.id.penjualanhome).setOnClickListener{
+            view.findNavController().navigate(R.id.action_home_fragment_to_fragment_penjualan)
+        }
+        view.findViewById<ImageButton>(R.id.supplierrrr).setOnClickListener{
+            view.findNavController().navigate(R.id.action_home_fragment_to_frag_supplier)
+        }
+        view.findViewById<ImageButton>(R.id.pembelianhome).setOnClickListener{
+            view.findNavController().navigate(R.id.action_home_fragment_to_fragment_pembelian)
+        }
+
     }
 
 
