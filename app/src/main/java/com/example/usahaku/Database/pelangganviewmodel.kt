@@ -17,9 +17,6 @@ class pelangganviewmodel(application: Application) : AndroidViewModel(applicatio
     fun delete(pelanggan: pelanggan) {
         repository.delete(pelanggan)
     }
-    fun deleteAllpelanggan() {
-        repository.deleteAllpelanggan()
-    }
     fun getAllpelanggan(): LiveData<List<pelanggan>> {
         return allpelanggan
     }

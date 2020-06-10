@@ -21,26 +21,14 @@ import com.example.usahaku.Database.produk
 import com.example.usahaku.databinding.FragPenjualanBinding
 import kotlinx.android.synthetic.main.frag_penjualan.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [fragment_penjualan.newInstance] factory method to
- * create an instance of this fragment.
- */
 class fragment_penjualan : Fragment() {
     // TODO: Rename and change types of parameters
     private lateinit var binding: FragPenjualanBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-
         }
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,7 +37,6 @@ class fragment_penjualan : Fragment() {
         // Inflate the layout for this fragment
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -72,7 +59,6 @@ class fragment_penjualan : Fragment() {
                 override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
                     return false
                 }
-
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                     AlertDialog.Builder(viewHolder.itemView.getContext())
                         // Judul
@@ -94,18 +80,11 @@ class fragment_penjualan : Fragment() {
         adapter.setOnItemClickListener(object : penjualanadapter.OnItemClickListener {
             override fun onItemClick(penjualan: penjualan) {
                 //penjualan
-
                 var jual = penjualan(penjualan.namapelanggan,penjualan.produk,penjualan.tanggaljual,penjualan.totalpembayaran.toString().toInt())
                 jual.id_penjualan = penjualan.id_penjualan
                        // view.findNavController().navigate(R.id.action_fragment_penjualan_to_fragment_tambahjual,bundle)
                 fragdialog_upjual(jual).show(childFragmentManager,"")
-
-
-
             }
         })
-
-
     }
-
 }

@@ -7,10 +7,8 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 
-
 @Database(entities = [produk::class], version = 1)
 abstract class produkdb : RoomDatabase() {
-
     abstract fun Produkdao(): Produkdao
     companion object {
         private var instance: produkdb? = null
@@ -35,15 +33,11 @@ abstract class produkdb : RoomDatabase() {
                 super.onCreate(db)
                 PopulateDbAsyncTask(instance)
                     .execute()
-            }
-        }
-    }
-
+            } } }
     class PopulateDbAsyncTask(db: produkdb?) : AsyncTask<Unit, Unit, Unit>() {
         private val Produkdao = db?.Produkdao()
-
         override fun doInBackground(vararg p0: Unit?) {
-            Produkdao?.insert(produk("Minyak", "Minyak mantab", 12000,15000,10,"KG"))
+           // Produkdao?.insert(produk("Minyak", "Minyak mantab", 12000,15000,10,"KG"))
         }
     }
 

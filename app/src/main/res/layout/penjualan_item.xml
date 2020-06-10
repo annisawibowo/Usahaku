@@ -29,6 +29,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="8dp"
+                    style="@style/TextAppearance.Usaha.Text"
                     android:layout_weight="1"
                     android:text="TextView"
                     android:textSize="24sp" />
@@ -43,6 +44,7 @@
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:text="0"
+                style="@style/TextAppearance.Usaha.Text"
                 android:textSize="36sp" />
 
 

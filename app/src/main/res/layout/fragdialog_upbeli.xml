@@ -3,18 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="350dp"
-        android:background="@drawable/a2kecil"
+        android:background="@drawable/lgicrop14"
         android:orientation="vertical">
 
-        <TextView
+        <TextViw
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
+            style="@style/TextAppearance.Usaha.Text"
             android:text="Pembelian"
             android:textSize="36sp" />
 

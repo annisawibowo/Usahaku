@@ -32,10 +32,8 @@ class frag_tambahpembelian : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-
         }
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,7 +41,6 @@ class frag_tambahpembelian : Fragment() {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_tambahpembelian,container,false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         rv_pesanproduk.layoutManager = LinearLayoutManager(this.requireContext())
@@ -57,7 +54,6 @@ class frag_tambahpembelian : Fragment() {
         val cdf1 = SimpleDateFormat("d/M/yyyy")
         val strdate1: String = cdf1.format(c1.getTime())
         binding.tanggalpembelian.setText(strdate1)
-
             binding.tanggalpembelian.setOnClickListener{
                 val dpd = DatePickerDialog(requireContext(), DatePickerDialog.OnDateSetListener {
                         view, year, monthOfYear, dayOfMonth ->
@@ -71,9 +67,7 @@ class frag_tambahpembelian : Fragment() {
         var pembelianviewmodel: pembelianviewmodel = ViewModelProviders.of(this).get(pembelianviewmodel::class.java)
         if (arguments != null) {
             var namasup = arguments?.getString("namasupplier")
-            var email = arguments?.getString("email")
             pesansupplier.setText(namasup)
-
         }
         var db = Room.databaseBuilder(requireContext(),temppesprodukdb :: class.java,"tabel_temppesproduk").build()
         tempppesrodukvm.alltempspes.observe(this.viewLifecycleOwner, androidx.lifecycle.Observer { temps -> temps?.let{
@@ -89,13 +83,11 @@ class frag_tambahpembelian : Fragment() {
             val bundle = Bundle()
             bundle.putString(keyp,"pesensup")
             it.findNavController().navigate(R.id.frag_supplier,bundle)
-
         }
         binding.pesanproduk.setOnClickListener{
             val bundle = Bundle()
             bundle.putString(keyp,"pesenprod")
             it.findNavController().navigate(R.id.frag_produk,bundle)
-
         }
         binding.savepembelian.setOnClickListener{
             fun coba(){
@@ -135,10 +127,10 @@ class frag_tambahpembelian : Fragment() {
                         intent.putExtra(Intent.EXTRA_SUBJECT, "Pesanan Produk")
                         intent.putExtra(Intent.EXTRA_TEXT, desk)
                         startActivity(Intent.createChooser(intent,"Ingin Mengirim Email ?"))
-
                     }
                     else if (no == 2){
-                        var newpem = pembelian(namasup,produkk[1]+" : "+jumlah[1]+" "+satuan[1]+" x "+harsat[1]+"\n"+produkk[2]+" : "+jumlah[2]+" "+satuan[2]+" x "+harsat[2],tanggall,hartot.toString().toInt())
+                        var newpem = pembelian(namasup,produkk[1]+" : "+jumlah[1]+" "+satuan[1]+" x "+harsat[1]+"\n"+produkk[2]+
+                                " : "+jumlah[2]+" "+satuan[2]+" x "+harsat[2],tanggall,hartot.toString().toInt())
                         pembelianviewmodel.insert(newpem)
                         var desk = produkk[1]+" : "+jumlah[1]+" "+satuan[1]+" x "+harsat[1]+"\n"+produkk[2]+" : "+jumlah[2]+" "+satuan[2]+" x "+harsat[2]
                         var email = arguments?.getString("email")
@@ -151,17 +143,11 @@ class frag_tambahpembelian : Fragment() {
                         intent.putExtra(Intent.EXTRA_SUBJECT, "Pesanan Produk")
                         intent.putExtra(Intent.EXTRA_TEXT, desk)
                         startActivity(Intent.createChooser(intent,"Ingin Mengirim Email ?"))
-
                     }
-
-                    // Log.i("@apaan","i ${i}") i-1
                 })
                 t.start()
             }
-
                 coba()
-
         }
-
     }
    }

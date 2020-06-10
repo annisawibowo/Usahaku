@@ -14,17 +14,6 @@ import com.example.usahaku.Database.penjualanrepositori
 import com.example.usahaku.Database.penjualanviewmodel
 import com.example.usahaku.databinding.FragmentdialogUpjualBinding
 import kotlinx.android.synthetic.main.fragmentdialog_upjual.*
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [fragdialog_upjual.newInstance] factory method to
- * create an instance of this fragment.
- */
 class fragdialog_upjual(
     private val jual :penjualan
 ) : DialogFragment() {
@@ -33,10 +22,8 @@ class fragdialog_upjual(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-
         }
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,7 +31,6 @@ class fragdialog_upjual(
         binding = DataBindingUtil.inflate(inflater,R.layout.fragmentdialog_upjual,container,false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         masukin()
@@ -54,7 +40,6 @@ class fragdialog_upjual(
             upjual.id_penjualan = jual.id_penjualan
             penjualanviewmodel.update(upjual)
             this.dismiss()
-
         }
     }
     fun masukin(){

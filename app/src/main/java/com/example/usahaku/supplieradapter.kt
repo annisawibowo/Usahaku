@@ -13,27 +13,30 @@ import kotlinx.android.synthetic.main.item_supplier.view.*
 
 class supplieradapter : ListAdapter<supplier, supplieradapter.supplierHolder>(DIFF_CALLBACK) {
     companion object {
-        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<supplier>() {
+        private val DIFF_CALLBACK = object :
+            DiffUtil.ItemCallback<supplier>() {
             override fun areItemsTheSame(oldItem: supplier, newItem: supplier): Boolean {
                 return oldItem.id_supplier == newItem.id_supplier
             }
             override fun areContentsTheSame(oldItem: supplier, newItem: supplier): Boolean {
-                return oldItem.namasupplier == newItem.namasupplier && oldItem.emailsupplier == newItem.emailsupplier
-                        && oldItem.notelpsup == newItem.notelpsup && oldItem.desksupplier == newItem.desksupplier
+                return oldItem.namasupplier == newItem.namasupplier
+                        && oldItem.emailsupplier == newItem.emailsupplier
+                        && oldItem.notelpsup == newItem.notelpsup
+                        && oldItem.desksupplier == newItem.desksupplier
                         && oldItem.alamatsup == newItem.alamatsup
             }
         }
     }
     private var listener: OnItemClickListener? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): supplierHolder {
-        val itemView: View = LayoutInflater.from(parent.context).inflate(R.layout.item_supplier, parent, false)
+        val itemView: View = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_supplier, parent, false)
         return supplierHolder(itemView)
     }
     override fun onBindViewHolder(holder: supplierHolder, position: Int) {
         val currentsupplier: supplier = getItem(position)
         holder.textViewnama.text = currentsupplier.namasupplier
         holder.textViewdesk.text = currentsupplier.desksupplier
-
     }
     fun getsupplierAt(position: Int): supplier {
         return getItem(position)
@@ -49,8 +52,6 @@ class supplieradapter : ListAdapter<supplier, supplieradapter.supplierHolder>(DI
         }
         var textViewnama: TextView = itemView.nama_supplier
         var textViewdesk: TextView = itemView.desksupplier
-
-
     }
     interface OnItemClickListener {
         fun onItemClick(supplier: supplier)

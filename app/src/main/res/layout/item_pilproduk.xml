@@ -15,6 +15,7 @@
             android:id="@+id/hidden"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/TextAppearance.Usaha.Text"
             android:text="TextView"
             android:visibility="gone" />
 
@@ -47,6 +48,7 @@
                         android:id="@+id/namapro"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        style="@style/TextAppearance.Usaha.Text"
                         android:layout_weight="1"
                         android:text="TextView" />
 
@@ -56,6 +58,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="right"
+                        style="@style/TextAppearance.Usaha.Text"
                         android:text="TextView" />
                 </LinearLayout>
 
@@ -71,6 +74,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        style="@style/TextAppearance.Usaha.Text"
                         android:text="TextView"
                         android:textSize="10sp"
                         android:textStyle="italic" />
@@ -80,6 +84,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        style="@style/TextAppearance.Usaha.Text"
                         android:text="TextView"
                         android:textSize="10sp"
                         android:textStyle="italic" />
@@ -98,6 +103,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        style="@style/TextAppearance.Usaha.Text"
                         android:text="TextView"
                         android:textSize="10sp"
                         android:textStyle="italic" />

@@ -43,7 +43,7 @@ abstract class pelanggandb : RoomDatabase() {
         private val Pelanggandao = db?.pelanggandao()
 
         override fun doInBackground(vararg p0: Unit?) {
-           Pelanggandao?.insert(pelanggan("Minyak", "Minyak mantab", "Taman Pinang Indah","08226582992"))
+           //Pelanggandao?.insert(pelanggan("Minyak", "Minyak mantab", "Taman Pinang Indah","08226582992"))
         }
     }
 

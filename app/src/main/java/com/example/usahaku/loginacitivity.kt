@@ -13,7 +13,6 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_loginacitivity.*
 
 class loginacitivity : AppCompatActivity() {
-
     private var googleSignInClient : GoogleSignInClient? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +25,7 @@ class loginacitivity : AppCompatActivity() {
         val email = inputEmail.text.toString()
         val password = inputPassword.text.toString()
         if (email.isEmpty()|| password.isEmpty()){
-            Toast.makeText(this, "Please Insert Email and Password", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Masukkan Email and Password", Toast.LENGTH_SHORT).show()
             return@setOnClickListener
         }
         FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password)
@@ -35,20 +34,13 @@ class loginacitivity : AppCompatActivity() {
                     return@addOnCompleteListener
                     val intent = Intent(this,loginacitivity::class.java)
                     startActivity(intent)
-                }
-
-                else
-                    Toast.makeText(this,"Succesfully Login", Toast.LENGTH_SHORT).show()
+                } else
+                    Toast.makeText(this,"Login Sukses", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }
             .addOnFailureListener{
                 Log.d("Main","Failed Login: ${it.message}")
-                Toast.makeText(this,"Email/Passwor incorrect", Toast.LENGTH_SHORT).show()
-
-            }
-
-    }
-    }
-
+                Toast.makeText(this,"Email/Password Salah", Toast.LENGTH_SHORT).show()
+            } } }
 }

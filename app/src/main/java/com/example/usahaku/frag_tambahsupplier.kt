@@ -19,10 +19,8 @@ class frag_tambahsupplier : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-
         }
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,9 +28,7 @@ class frag_tambahsupplier : Fragment() {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_tambahsupplier,container,false)
         // Inflate the layout for this fragment
         return binding.root
-
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -40,15 +36,10 @@ class frag_tambahsupplier : Fragment() {
         if (arguments != null) {
         masukin()
         }
-
-
         binding.savesupplier.setOnClickListener{
             if (arguments != null) {
                 //masukin()
                 var idt = arguments?.getInt("id")
-               // Toast.makeText(context," apa sih"+idt,Toast.LENGTH_SHORT).show()
-
-
                 val newsupplier = supplier (
                     binding.namasupplier.text.toString(),binding.desksupplier.text.toString(),binding.emailsupplier.text.toString(),binding.notelpsup.text.toString()
                     ,binding.alamatsupplier.text.toString()///ANJAY KALO INTEGER GIMANA NGAMBILNYA .tostring.toint
@@ -61,7 +52,7 @@ class frag_tambahsupplier : Fragment() {
             else{
                 val newsupplier = supplier (
                     binding.namasupplier.text.toString(),binding.desksupplier.text.toString(),binding.emailsupplier.text.toString(),binding.notelpsup.text.toString()
-                    ,binding.alamatsupplier.text.toString()///ANJAY KALO INTEGER GIMANA NGAMBILNYA .tostring.toint
+                    ,binding.alamatsupplier.text.toString()
                 )
                 supplierviewmodel.insert(newsupplier)
                 //this.dismiss()

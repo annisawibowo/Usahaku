@@ -17,6 +17,4 @@
         tools:layout_editor_absoluteX="164dp"
         tools:layout_editor_absoluteY="232dp"
         tools:layout="@layout/home_fragment" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

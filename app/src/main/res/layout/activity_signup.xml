@@ -75,10 +75,6 @@
                 android:layout_alignParentRight="true"
                 android:text="SIGN UP"/>
 
-
-
-        </RelativeLayout>
-
-    </LinearLayout>
-
-</ScrollView>
+            </RelativeLayout>
+         </LinearLayout>
+        </ScrollView>

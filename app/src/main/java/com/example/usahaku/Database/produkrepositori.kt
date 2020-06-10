@@ -6,11 +6,8 @@ import androidx.lifecycle.LiveData
 
 
 class produkrepositori(application: Application) {
-
     private var produkdao:Produkdao
-
     private var allproduk: LiveData<List<produk>>
-
     init {
         val database: produkdb = produkdb.getInstance(
             application.applicationContext
@@ -28,13 +25,9 @@ class produkrepositori(application: Application) {
     fun delete(produk: produk) {
         val deleteprodukAsyncTask = DeleteprodukAsyncTask(produkdao).execute(produk)
     }
-    fun deleteAllproduk() {
-        val deleteAllprodukAsyncTask = DeleteAllprodukAsyncTask(produkdao).execute()
-    }
     fun getAllproduk(): LiveData<List<produk>> {
         return allproduk
     }
-
     companion object {
         private class InsertprodukAsyncTask(produkdao: Produkdao) : AsyncTask<produk, Unit, Unit>() {
             val produkdao = produkdao
@@ -56,17 +49,7 @@ class produkrepositori(application: Application) {
                 produkdao.delete(p0[0]!!)
             }
         }
-        private class DeleteAllprodukAsyncTask(produkdao: Produkdao) : AsyncTask<Unit, Unit, Unit>() {
-            val produkdao = produkdao
-
-            override fun doInBackground(vararg p0: Unit?) {
-                produkdao.deleteAllproduk()
-            }
-        }
-
     }
-
-
 }
 
 

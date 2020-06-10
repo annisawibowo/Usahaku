@@ -43,7 +43,7 @@ abstract class pembeliandb : RoomDatabase() {
         private val pembeliandao = db?.pembeliandao()
 
         override fun doInBackground(vararg p0: Unit?) {
-            pembeliandao?.insert(pembelian("PT. Mayor", "Minyal x 2 x 14000", "03/06/2020",50000))
+            //pembeliandao?.insert(pembelian("PT. Mayor", "Minyal x 2 x 14000", "03/06/2020",50000))
         }
     }
 

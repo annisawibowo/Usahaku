@@ -20,30 +20,26 @@ import kotlinx.android.synthetic.main.fragment_tambahproduk.*
 
 
 class tambahproduk : Fragment() {
-  //  private lateinit var produkviewmodel: produkviewmodel
     var idt = 0
-
    private lateinit var binding: FragmentTambahprodukBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-
         }
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_tambahproduk,container,false)
+        binding = DataBindingUtil.inflate(inflater,
+            R.layout.fragment_tambahproduk,container,false)
         // Inflate the layout for this fragment
         return binding.root
-
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var produkviewmodel:produkviewmodel = ViewModelProviders.of(this).get(produkviewmodel::class.java)
+        var produkviewmodel:produkviewmodel =
+            ViewModelProviders.of(this).get(produkviewmodel::class.java)
         if (arguments != null) {
             var nama = arguments?.getString("namaproduk")
             var desk = arguments?.getString("deskproduk")
@@ -59,12 +55,16 @@ class tambahproduk : Fragment() {
             binding.hargapokok.setText(hargap.toString())
             binding.jumlah.setText(jumlah.toString())
             binding.satuan.setText(satuan.toString())
-
         }
         binding.saveproduk.setOnClickListener{
 
             val newproduk = produk (
-                binding.namaProduk.text.toString(),binding.deskproduk.text.toString(),binding.hargapokok.text.toString().toInt(),binding.hargajual.text.toString().toInt(),binding.jumlah.text.toString().toInt(),binding.satuan.text.toString()
+                binding.namaProduk.text.toString(),
+                binding.deskproduk.text.toString(),
+                binding.hargapokok.text.toString().toInt(),
+                binding.hargajual.text.toString().toInt(),
+                binding.jumlah.text.toString().toInt(),
+                binding.satuan.text.toString()
             )
             if (arguments != null) {
                     newproduk.id_produk = idt
@@ -73,43 +73,7 @@ class tambahproduk : Fragment() {
             else {
                 produkviewmodel.insert(newproduk)
             }
-
             this.findNavController().popBackStack()
         }
     }
-
-
-private fun save(){
-
-  //  val newproduk = produk (
-    //    binding.namaProduk.text.toString(),binding.deskproduk.text.toString(),binding.hargapokok.inputType,binding.hargajual.inputType,binding.jumlahproduk.inputType,binding.satuan.text.toString()
-
-   // )
- //   produkviewmodel.insert(newproduk)
-
-
-}
-
-
-
-
-
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     *
-     *
-     * See the Android Training lesson [Communicating with Other Fragments]
-     * (http://developer.android.com/training/basics/fragments/communicating.html)
-     * for more information.
-     */
-    interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        fun onFragmentInteraction(uri: Uri)
-    }
-
-
 }

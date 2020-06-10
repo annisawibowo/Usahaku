@@ -22,31 +22,17 @@ import kotlinx.android.synthetic.main.frag_tambahjual.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [fragment_tambahjual.newInstance] factory method to
- * create an instance of this fragment.
- */
 class fragment_tambahjual : Fragment() {
-    //private var param2: String? =
+
     var KEY_FRG = "msg_fragment2"
     var KEY_FRG1 = "msg_fragment"
-    //var hartot = 0
-    private lateinit var produk:produk
-   // private lateinit var tempproduk: tempproduk
+
     private lateinit var binding: FragTambahjualBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
         }
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -54,10 +40,7 @@ class fragment_tambahjual : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater,R.layout.frag_tambahjual,container,false)
         return binding.root
-
-
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val c1: Calendar = Calendar.getInstance()
@@ -76,24 +59,14 @@ class fragment_tambahjual : Fragment() {
         var db = Room.databaseBuilder(requireContext(),tempprodukdb :: class.java,"tabel_tempproduk").build()
         // var emp = tempproduk
         var tanggal = binding.tanggal.text.toString()
-
         var key1 = arguments?.getString("namapelanggan")
         //var key2 = arguments?.getString("namaproduk")
         if (key1 != null) {
             var namapel = arguments?.getString("namapelanggan")
             binding.namapelanggan.setText(namapel)
         }
-
-
-        else{
-
-        }
-
         tempprodukViewModel.alltemps.observe(this.viewLifecycleOwner, androidx.lifecycle.Observer { temps -> temps?.let{
            adapter.settemps(it)
-
-            //var temp: tempproduk[it]
-            //val tempproduk:tempproduk
 
             adapter.setOnClickListener {
                 val current = temps[it]
@@ -111,7 +84,6 @@ class fragment_tambahjual : Fragment() {
             dpd.show()
         }
         binding.pilihpelanggan.setOnClickListener{
-
             val pelanggan = fragment_pelanggan()
             val mBundle = Bundle()
             mBundle.putString(KEY_FRG, "hayukbisa")
@@ -149,7 +121,6 @@ class fragment_tambahjual : Fragment() {
                         Log.i("@apaan","array ${produkk[i]}")
                         i++
                     }
-
                     var no = i-1
                     var x = 1
                     var namapel = binding.namapelanggan.text.toString()
@@ -158,21 +129,20 @@ class fragment_tambahjual : Fragment() {
                         penjualanviewmodel.insert(newproduk)
                     }
                     else if (no == 2){
-                        var newproduk = penjualan(namapel,produkk[1]+" : "+jumlah[1]+" "+satuan[1]+" x "+harsat[1]+"\n"+produkk[2]+" : "+jumlah[2]+" "+satuan[2]+" x "+harsat[2],tanggall,hartot.toString().toInt())
+                        var newproduk = penjualan(namapel,produkk[1]+" : "+jumlah[1]+" "+satuan[1]+" x "+harsat[1]+"\n"+produkk[2]+
+                                " : "+jumlah[2]+" "+satuan[2]+" x "+harsat[2],tanggall,hartot.toString().toInt())
                         penjualanviewmodel.insert(newproduk)
                     }
-                    // Log.i("@apaan","i ${i}") i-1
+
                 })
                 t.start()
             }
             coba()
-
-            this.findNavController().popBackStack()
+            //
             this.findNavController().popBackStack()
             this.findNavController().popBackStack()
             this.findNavController().popBackStack()
         }
-
     }
 }
 

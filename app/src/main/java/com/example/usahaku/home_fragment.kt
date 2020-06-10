@@ -12,18 +12,6 @@ import androidx.navigation.findNavController
 
 class home_fragment : Fragment() {
 
-    //private lateinit var binding: home_fragment
-
-    // TODO: Rename and change types of parameters
-  //  private var listener: profiletoko.OnFragmentInteractionListener? = null
-
-   /// override fun onCreate(savedInstanceState: Bundle?) {
-     //   super.onCreate(savedInstanceState)
-    //    arguments?.let {
-
-   //     }
-  //  }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,9 +19,7 @@ class home_fragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.home_fragment, container, false)
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
 
         view.findViewById<ImageView>(R.id.produkhome).setOnClickListener{
             view.findNavController().navigate(R.id.action_home_fragment_to_frag_produk)
@@ -51,9 +37,8 @@ class home_fragment : Fragment() {
             view.findNavController().navigate(R.id.action_home_fragment_to_fragment_pembelian)
         }
 
+        view.findViewById<ImageView>(R.id.information).setOnClickListener{
+            view.findNavController().navigate(R.id.action_home_fragment_to_fraginfo)
+        }
     }
-
-
-
-
 }

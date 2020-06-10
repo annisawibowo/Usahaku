@@ -17,9 +17,6 @@ class penjualanviewmodel(application: Application) : AndroidViewModel(applicatio
     fun delete(penjualan: penjualan) {
         repository.delete(penjualan)
     }
-    fun deleteAllpenjualan() {
-        repository.deleteAllpenjualan()
-    }
     fun getAllpenjualan(): LiveData<List<penjualan>> {
         return allpenjualan
     }

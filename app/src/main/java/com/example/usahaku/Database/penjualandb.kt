@@ -43,7 +43,7 @@ abstract class penjualandb : RoomDatabase() {
         private val penjualandao = db?.penjualandao()
 
         override fun doInBackground(vararg p0: Unit?) {
-            penjualandao?.insert(penjualan("Annisa", "Minyak", "28/05/2020",9))
+           // penjualandao?.insert(penjualan("Annisa", "Minyak", "28/05/2020",9))
         }
     }
 

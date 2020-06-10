@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.usahaku.Database.pelanggan
 import com.example.usahaku.Database.pelangganviewmodel
 import com.example.usahaku.databinding.FragTambahpelangganBinding
+import kotlinx.android.synthetic.main.frag_tambahpelanggan.*
 
 
 class fragment_tambahpelanggan : Fragment() {
@@ -20,33 +21,54 @@ class fragment_tambahpelanggan : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-
         }
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater,R.layout.frag_tambahpelanggan,container,false)
+        binding = DataBindingUtil.inflate(inflater,
+            R.layout.frag_tambahpelanggan,container,false)
         // Inflate the layout for this fragment
         return binding.root
-
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var pelangganviewmodel: pelangganviewmodel = ViewModelProviders.of(this).get(pelangganviewmodel::class.java)
+        var pelangganviewmodel: pelangganviewmodel
+                = ViewModelProviders.of(this).get(pelangganviewmodel::class.java)
+        if (arguments != null) {
+            masukin()
+            binding.savepelanggan.setOnClickListener{
+                val newpelanggan = pelanggan (
+                    binding.namapelanggan.text.toString(),
+                    binding.emailpelanggan.text.toString(),
+                    binding.alamatpelanggan.text.toString(),
+                    binding.notelppel.text.toString())
+                val idt = arguments?.getInt("id").toString().toInt()
+                newpelanggan.id_pelanggan = idt
+                pelangganviewmodel.update(newpelanggan)
+                //this.dismiss()
+                this.findNavController().popBackStack()
+            }
+        }
+        else{
         binding.savepelanggan.setOnClickListener{
 
             val newpelanggan = pelanggan (
-                binding.namapelanggan.text.toString(),binding.emailpelanggan.text.toString(),binding.alamatpelanggan.text.toString(),binding.notelppel.text.toString()
+                binding.namapelanggan.text.toString(),binding.emailpelanggan.text.toString(),
+                binding.alamatpelanggan.text.toString(),binding.notelppel.text.toString()
                 ///ANJAY KALO INTEGER GIMANA NGAMBILNYA .tostring.toint
             )
             pelangganviewmodel.insert(newpelanggan)
             //this.dismiss()
             this.findNavController().popBackStack()
         }
+        }//else
     }
-
+    fun masukin(){
+        namapelanggan.setText(arguments?.getString("namapelanggan"))
+        emailpelanggan.setText(arguments?.getString("email"))
+        notelppel.setText(arguments?.getString("notelp"))
+        alamatpelanggan.setText(arguments?.getString("alamat"))
+    }
 }

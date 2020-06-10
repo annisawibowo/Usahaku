@@ -15,6 +15,12 @@
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
+    <style name="TextAppearance.Usaha.Info" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
     <style name="Widget.Usaha.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="hintTextAppearance">@style/TextAppearance.Usaha.TextInputLayout.HintText</item>
         <item name="hintTextColor">@color/textColorPrimary</item>

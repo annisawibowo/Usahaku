@@ -13,20 +13,25 @@ import kotlinx.android.synthetic.main.produk_item.view.*
 
 class produkadapter : ListAdapter<produk, produkadapter.produkHolder>(DIFF_CALLBACK) {
     companion object {
-        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<produk>() {
+        private val DIFF_CALLBACK =
+            object : DiffUtil.ItemCallback<produk>() {
             override fun areItemsTheSame(oldItem: produk, newItem: produk): Boolean {
                 return oldItem.id_produk == newItem.id_produk
             }
             override fun areContentsTheSame(oldItem: produk, newItem: produk): Boolean {
-                return oldItem.namaproduk == newItem.namaproduk && oldItem.deskproduk == newItem.deskproduk
-                        && oldItem.hargapokok == newItem.hargapokok && oldItem.hargajual == newItem.hargajual
-                        && oldItem.jumlah == newItem.jumlah  && oldItem.satuanproduk == newItem.satuanproduk
+                return oldItem.namaproduk == newItem.namaproduk
+                        && oldItem.deskproduk == newItem.deskproduk
+                        && oldItem.hargapokok == newItem.hargapokok
+                        && oldItem.hargajual == newItem.hargajual
+                        && oldItem.jumlah == newItem.jumlah
+                        && oldItem.satuanproduk == newItem.satuanproduk
             }
         }
     }
     private var listener: OnItemClickListener? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): produkHolder {
-        val itemView: View = LayoutInflater.from(parent.context).inflate(R.layout.produk_item, parent, false)
+        val itemView: View = LayoutInflater.from(parent.context)
+            .inflate(R.layout.produk_item, parent, false)
         return produkHolder(itemView)
     }
     override fun onBindViewHolder(holder: produkHolder, position: Int) {
@@ -34,8 +39,7 @@ class produkadapter : ListAdapter<produk, produkadapter.produkHolder>(DIFF_CALLB
         holder.textViewnama.text = currentproduk.namaproduk
         holder.textViewhargajual.text = currentproduk.hargajual.toString()
         holder.textViewjumlah.text = currentproduk.jumlah.toString()
-        holder.textViewsatuan.text = currentproduk.satuanproduk
-    }
+        holder.textViewsatuan.text = currentproduk.satuanproduk }
     fun getprodukAt(position: Int): produk {
         return getItem(position)
     }
@@ -52,7 +56,6 @@ class produkadapter : ListAdapter<produk, produkadapter.produkHolder>(DIFF_CALLB
         var textViewhargajual: TextView = itemView.hargajual
         var textViewjumlah: TextView = itemView.jumlah
         var textViewsatuan: TextView = itemView.satuan
-
     }
     interface OnItemClickListener {
         fun onItemClick(produk: produk)

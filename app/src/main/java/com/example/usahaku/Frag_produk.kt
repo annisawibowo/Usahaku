@@ -31,50 +31,33 @@ class Frag_produk : Fragment() {
     private lateinit var binding: FragmentProdukBinding
     var KEY_FRG1 = "msg_fragment"
 
-   // private lateinit var produkviewmodel: produkviewmodel
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
-        judul()
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_produk,container,false)
         // Inflate the layout for this fragment
             return binding.root
-
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (arguments != null) {
-            var nama = arguments?.getString("rayproduk")
-            if (nama != null){
-                Toast.makeText(context,nama[1].toString(),Toast.LENGTH_SHORT).show()
-            }
 
-        }
         rv_produk.layoutManager = LinearLayoutManager(this.requireContext())
         rv_produk.setHasFixedSize(true)
         val adapter = produkadapter()
         rv_produk.adapter = adapter
-
         var produkviewmodel:produkviewmodel = ViewModelProviders.of(this).get(produkviewmodel::class.java)
         produkviewmodel.getAllproduk().observe(this.viewLifecycleOwner, Observer <List<produk>>{
             adapter.submitList(it)
         })
-
-
         binding.buttonAddproduk.setOnClickListener{
             it.findNavController().navigate(R.id.action_frag_produk_to_tambahproduk)
         }
-   //item touchhelper dan seterusnya
-
         ItemTouchHelper(
-            object :ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT.or(ItemTouchHelper.RIGHT).or(ItemTouchHelper.DOWN)) {
-                override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
+            object :ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT.or(ItemTouchHelper.RIGHT)) {
+                override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder,
+                                    target: RecyclerView.ViewHolder): Boolean {
                     return false
                 }
-
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                     AlertDialog.Builder(viewHolder.itemView.getContext())
                         // Judul
@@ -95,40 +78,19 @@ class Frag_produk : Fragment() {
         ).attachToRecyclerView(rv_produk)
         adapter.setOnItemClickListener(object : produkadapter.OnItemClickListener {
             override fun onItemClick(produk:produk) {
-
                 if (arguments != null) {
                     var pesan = arguments?.getString(keyp)
                     if(pesan != null){//pembelian
-                        val bundle = Bundle()
-                        bundle.putString("namaproduk", produk.namaproduk)
-                        bundle.putString("deskproduk", produk.deskproduk)
-                        bundle.putInt("hargajual", produk.hargajual)
-                        bundle.putInt("hargapokok", produk.hargapokok)
-                        bundle.putInt("jumlah", produk.jumlah)
-                        bundle.putString("satuan", produk.satuanproduk)
-
-
-                        val Produk = produk(produk.namaproduk,produk.deskproduk,produk.hargapokok,produk.hargajual,produk.jumlah,produk.satuanproduk)
-
+                           val Produk = produk(produk.namaproduk,produk.deskproduk,produk.hargapokok,
+                            produk.hargajual,produk.jumlah,produk.satuanproduk)
                         fragdialog_pilproduk(Produk).show(childFragmentManager,"")
                     }
                     else{ //penjualan
-                        val bundle = Bundle()
-                        bundle.putInt("id", produk.id_produk)
-                        bundle.putString("namaproduk", produk.namaproduk)
-                        bundle.putString("deskproduk", produk.deskproduk)
-                        bundle.putInt("hargajual", produk.hargajual)
-                        bundle.putInt("hargapokok", produk.hargapokok)
-                        bundle.putInt("jumlah", produk.jumlah)
-                        bundle.putString("satuan", produk.satuanproduk)
-
-
-                        val Produk = produk(produk.namaproduk,produk.deskproduk,produk.hargapokok,produk.hargajual,produk.jumlah,produk.satuanproduk)
+                        val Produk = produk(produk.namaproduk,produk.deskproduk,produk.hargapokok,
+                            produk.hargajual,produk.jumlah,produk.satuanproduk)
                         Produk.id_produk = produk.id_produk
                         fragdialog_pilproduk(Produk).show(childFragmentManager,"")
                     }
-
-
                 }//argument
                 else{//update
                     val bundle = Bundle()
@@ -145,16 +107,5 @@ class Frag_produk : Fragment() {
 
                         }
         })
-
     }
-    private fun judul() {
-        val getActivity = this.requireActivity() as MainActivity
-        getActivity.supportActionBar?.title = "List Produk"
-    }
-
-
-
-
-
-
 }

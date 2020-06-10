@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-   >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- TODO: Update blank fragment layout -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/a5">
+        android:background="@drawable/a14">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,7 +18,7 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="30dp"
-                android:src="@drawable/ic_commerce" />
+                android:src="@drawable/ic_pengeluaran" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -124,8 +121,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1" />
-
-
 
                     <Button
                         android:id="@+id/pembayaran"

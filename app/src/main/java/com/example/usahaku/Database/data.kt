@@ -4,16 +4,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-    (tableName = "table_toko")
-data class toko(
-    var namatoko: String,
-    var alamat: String,
-    var email: String,
-    var notlp: String ) {
-    @PrimaryKey(autoGenerate = true)
-    var id_toko: Int = 0
-}
-@Entity
     (tableName = "tabel_produk")
 data class produk(
     var namaproduk: String,
@@ -45,7 +35,8 @@ data class penjualan(
     var tanggaljual: String,
     var totalpembayaran:Int)
 {
-    @PrimaryKey(autoGenerate = true) var id_penjualan: Int = 0
+    @PrimaryKey(autoGenerate = true)
+    var id_penjualan: Int = 0
 
 }
 @Entity
@@ -80,7 +71,8 @@ data class pembelian(
     var tanggalpesan: String,
     var totalpembelian:Int )
 {
-    @PrimaryKey(autoGenerate = true) var id_pembelian: Int = 0
+    @PrimaryKey(autoGenerate = true)
+    var id_pembelian: Int = 0
 
 }
 

@@ -5,8 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
     app:startDestination="@id/home_fragment">
-
-
     <fragment
         android:id="@+id/home_fragment"
         android:name="com.example.usahaku.home_fragment"
@@ -27,6 +25,10 @@
         <action
             android:id="@+id/action_home_fragment_to_fragment_pembelian"
             app:destination="@id/fragment_pembelian" />
+        <action
+            android:id="@+id/action_home_fragment_to_fraginfo"
+            app:destination="@id/fraginfo" />
+
     </fragment>
     <fragment
         android:id="@+id/frag_produk"
@@ -52,7 +54,6 @@
         <action
             android:id="@+id/action_fragment_pelanggan_to_fragment_tambahpelanggan"
             app:destination="@id/fragment_tambahpelanggan" />
-
     </fragment>
     <fragment
         android:id="@+id/fragment_tambahpelanggan"
@@ -111,6 +112,8 @@
         android:id="@+id/fragdialog_upjual"
         android:name="com.example.usahaku.fragdialog_upjual"
         android:label="fragdialog_upjual" />
-
-
-</navigation>
+    <fragment
+        android:id="@+id/fraginfo"
+        android:name="com.example.usahaku.fraginfo"
+        android:label="fraginfo" />
+    </navigation>

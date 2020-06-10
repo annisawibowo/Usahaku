@@ -20,7 +20,6 @@ class fragmentdialog_upbeli(
         arguments?.let {
         }
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,12 +28,10 @@ class fragmentdialog_upbeli(
         binding = DataBindingUtil.inflate(inflater,R.layout.fragdialog_upbeli,container,false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         masukin()
     }
-
     fun masukin(){
 
         namasuppbl.setText(beli.namasupplierp)
@@ -42,5 +39,4 @@ class fragmentdialog_upbeli(
         tanggalpbl.setText(beli.tanggalpesan)
         totalpbl.setText(beli.totalpembelian.toString())
     }
-
 }

@@ -28,9 +28,7 @@ class penjualanrepositori(application: Application) {
     fun delete(penjualan: penjualan) {
         val deletepenjualanAsyncTask = DeletepenjualanAsyncTask(penjualandao).execute(penjualan)
     }
-    fun deleteAllpenjualan() {
-        val deleteAllpenjualanAsyncTask = DeleteAllpenjualanAsyncTask(penjualandao).execute()
-    }
+
     fun getAllpenjualan(): LiveData<List<penjualan>> {
         return allpenjualan
     }
@@ -56,13 +54,7 @@ class penjualanrepositori(application: Application) {
                 penjualandao.delete(p0[0]!!)
             }
         }
-        private class DeleteAllpenjualanAsyncTask(penjualandao: Penjualandao) : AsyncTask<Unit, Unit, Unit>() {
-            val penjualandao = penjualandao
 
-            override fun doInBackground(vararg p0: Unit?) {
-                penjualandao.deleteAllpenjualan()
-            }
-        }
 
     }
 

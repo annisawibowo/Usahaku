@@ -28,42 +28,31 @@ class fragment_pelanggan : Fragment() {
     // TODO: Rename and change types of parameters
     var KEY_FRG = "msg_fragment2"
     private lateinit var binding: FragPelangganBinding
-    // private lateinit var produkviewmodel: produkviewmodel
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
-        judul()
+
         binding = DataBindingUtil.inflate(inflater,R.layout.frag_pelanggan,container,false)
         // Inflate the layout for this fragment
         return binding.root
-
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val msg = arguments?.getString(KEY_FRG)
-
 
         rv_pelanggan.layoutManager = LinearLayoutManager(this.requireContext())
         rv_pelanggan.setHasFixedSize(true)
         val adapter = pelangganadapter()
         rv_pelanggan.adapter = adapter
 
-        //Toast.makeText(activity,msg+"<-nih apa",Toast.LENGTH_LONG).show() ///BISA ANJAYYY PAKE BUNDLE DIBELAKANG ACTION_WHI WEHFI
-
         var pelangganviewmodel: pelangganviewmodel = ViewModelProviders.of(this).get(pelangganviewmodel::class.java)
         pelangganviewmodel.getAllpelanggan() .observe(this.viewLifecycleOwner, Observer <List<pelanggan>>{
             adapter.submitList(it)
         })
 
-
         binding.buttonAddpelanggan.setOnClickListener{
             it.findNavController().navigate(R.id.action_fragment_pelanggan_to_fragment_tambahpelanggan)
         }
-        //item touchhelper dan seterusnya
 
         ItemTouchHelper(
             object :
@@ -72,7 +61,6 @@ class fragment_pelanggan : Fragment() {
                 override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
                     return false
                 }
-
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                     AlertDialog.Builder(viewHolder.itemView.getContext())
                         // Judul
@@ -102,39 +90,21 @@ class fragment_pelanggan : Fragment() {
                         R.id.listpelanggan -> {
                             view.findNavController().navigate(
                                 R.id.fragment_tambahjual, bundle)
-
                         }
-
                     }
-
-
-
-
                 }
                 else{
                     val bundle = Bundle()
-                    // bundle.putString(tambahproduk.EXTRA_NAMA, produk.namaproduk)
-                    //  bundle.putString(tambahproduk.EXTRA_DESKRIPSI, produk.deskproduk)
-                    // bundle.putInt(tambahproduk.EXTRA_JUAL, produk.hargajual)
-                    //  bundle.putInt(tambahproduk.EXTRA_HARGA, produk.hargapokok)
-                    //  bundle.putInt(tambahproduk.EXTRA_JUMLAH, produk.jumlah)
-                    // bundle.putString(tambahproduk.EXTRA_SATUAN, produk.satuanproduk)
-                    // view.findNavController().navigate(R.id.action_home_fragment_to_profiletoko)
+                    bundle.putInt("id", pelanggan.id_pelanggan)
+                    bundle.putString("namapelanggan", pelanggan.namapelanggan)
+                    bundle.putString("alamat", pelanggan.alamatpelanggan)
+                    bundle.putString("email", pelanggan.emailpelanggan)
+                    bundle.putString("notelp", pelanggan.notelppelanggan)
+
+                    view.findNavController().navigate(R.id.action_fragment_pelanggan_to_fragment_tambahpelanggan, bundle)
+
                 }
-
-
             }
         }
         )}
-    private fun judul() {
-        val getActivity = this.requireActivity() as MainActivity
-        getActivity.supportActionBar?.title = "List Pelanggan"
-    }
-private fun getBundle(){
-
-
-}
-
-
-
 }

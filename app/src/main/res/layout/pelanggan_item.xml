@@ -40,17 +40,21 @@
 
                 <TextView
                     android:id="@+id/nama_pelanggan"
+                    style="@style/TextAppearance.Usaha.Text"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="8dp"
                     android:layout_weight="1"
+                    android:gravity="center_horizontal"
                     android:text="TextView"
                     android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/notelpel"
+                    style="@style/TextAppearance.Usaha.Text"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
                     android:layout_weight="1"
                     android:text="TextView"
                     android:textSize="18sp" />

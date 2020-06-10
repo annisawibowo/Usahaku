@@ -38,12 +38,11 @@ abstract class supplierdb : RoomDatabase() {
             }
         }
     }
-
     class PopulateDbAsyncTask(db:supplierdb?) : AsyncTask<Unit, Unit, Unit>() {
         private val supplierdao = db?.supplierdao()
 
         override fun doInBackground(vararg p0: Unit?) {
-            supplierdao?.insert(supplier("PT. Nukee", "Menjual bahan baku rumah tangga", "nidyanuke12@gmail.com","08226582992","Kamal Tengah Mantab"))
+           // supplierdao?.insert(supplier("PT. Nukee", "Menjual bahan baku rumah tangga", "nidyanuke12@gmail.com","08226582992","Kamal Tengah Mantab"))
         }
     }
 

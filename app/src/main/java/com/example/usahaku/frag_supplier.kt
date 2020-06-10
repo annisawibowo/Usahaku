@@ -24,46 +24,30 @@ import kotlinx.android.synthetic.main.fragment_tambahsupplier.*
 @Suppress("UNUSED_ANONYMOUS_PARAMETER")
 class frag_supplier : Fragment() {
 
-
-        // TODO: Rename and change types of parameters
-        var KEY_FRG = "msg_fragment2"
         private lateinit var binding: FragmentSupplierBinding
-         //private lateinit var produkviewmodel: produkviewmodel
-
-
         override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?): View? {
-
             binding = DataBindingUtil.inflate(inflater,R.layout.fragment_supplier,container,false)
             // Inflate the layout for this fragment
             return binding.root
-
         }
-
         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
             super.onViewCreated(view, savedInstanceState)
-
-            val msg = arguments?.getString(KEY_FRG)
-
 
             rv_supplier.layoutManager = LinearLayoutManager(this.requireContext())
             rv_supplier.setHasFixedSize(true)
             val adapter = supplieradapter()
             rv_supplier.adapter = adapter
 
-            //Toast.makeText(activity,msg+"<-nih apa",Toast.LENGTH_LONG).show() ///BISA ANJAYYY PAKE BUNDLE DIBELAKANG ACTION_WHI WEHFI
-
             var supplierviewmodel: supplierviewmodel = ViewModelProviders.of(this).get(supplierviewmodel::class.java)
             supplierviewmodel.getAllsupplier() .observe(this.viewLifecycleOwner, Observer <List<supplier>>{
                 adapter.submitList(it)
             })
 
-
             binding.buttonAddsupplier.setOnClickListener{
                 it.findNavController().navigate(R.id.action_frag_supplier_to_frag_tambahsupplier)
             }
-            //item touchhelper dan seterusnya
 
             ItemTouchHelper(
                 object :
@@ -72,7 +56,6 @@ class frag_supplier : Fragment() {
                     override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
                         return false
                     }
-
                     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                         AlertDialog.Builder(viewHolder.itemView.getContext())
                             // Judul
@@ -103,17 +86,11 @@ class frag_supplier : Fragment() {
                             R.id.listsupplier -> {
 
                                 view.findNavController().navigate(
-                                    R.id.frag_tambahpembelian, bundle)//sek besok ae
-
+                                    R.id.frag_tambahpembelian, bundle)
                             }
-
                         }
-
-
-
                     }
                     else{//update
-
                         val bundle = Bundle()
                         bundle.putInt("id",supplier.id_supplier)
                         bundle.putString("namasupplier",supplier.namasupplier)
@@ -124,8 +101,6 @@ class frag_supplier : Fragment() {
 
                         view.findNavController().navigate(R.id.action_frag_supplier_to_frag_tambahsupplier, bundle)
                     }
-
-
                 }
             }
             )}

@@ -17,31 +17,15 @@ import com.example.usahaku.Database.*
 import com.example.usahaku.databinding.FragmentdialogPilprodukBinding
 import kotlinx.android.synthetic.main.fragmentdialog_pilproduk.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [fragdialog_pilproduk.newInstance] factory method to
- * create an instance of this fragment.
- */
 class fragdialog_pilproduk (
     private val Produk: produk
-
 ) : DialogFragment() {
-    var no = 1
-    //private lateinit var tempproduk: tempproduk
     private lateinit var binding: FragmentdialogPilprodukBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-
         }
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -50,7 +34,6 @@ class fragdialog_pilproduk (
         binding = DataBindingUtil.inflate(inflater,R.layout.fragmentdialog_pilproduk,container,false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (Produk.id_produk == 0){
@@ -70,49 +53,29 @@ class fragdialog_pilproduk (
             binding.pilihjmlproduk.setOnClickListener{
                 var produkviewmodel: produkviewmodel = ViewModelProviders.of(this).get(produkviewmodel::class.java)
                 var jumlahstok = Produk.jumlah
-
                 var tempprodukViewModel: tempprodukViewModel = ViewModelProvider(this).get(tempprodukViewModel::class.java)
-
                 var jumlahbeli = pilihjmlpro.text.toString().toInt()
                 if (jumlahstok >= jumlahbeli){
                     val jmlnew = jumlahstok - jumlahbeli
-
                     val hargatotal = Produk.hargajual * jumlahbeli
                     val inproduk = tempproduk(Produk.namaproduk,Produk.hargajual,hargatotal,jumlahbeli,Produk.satuanproduk)
-                    tempprodukViewModel.insert(inproduk) //
-                    //Toast.makeText(context,jmlnew.toString(),Toast.LENGTH_LONG).show()
+                    tempprodukViewModel.insert(inproduk)
                     val upproduk = produk(Produk.namaproduk,Produk.deskproduk,Produk.hargapokok,Produk.hargajual,jmlnew,Produk.satuanproduk)
                     upproduk.id_produk = Produk.id_produk
-                    //Toast.makeText(context,upproduk.id_produk.toString(),Toast.LENGTH_LONG).show()
                     produkviewmodel.update(upproduk)
-
                     this.dismiss()
                     this.findNavController().popBackStack()
-
                 }
                 else{
                     binding.pilihjmlpro.error = "Jumlah Terlalu Banyak"
-                }
-            }
-        }
-
-
-       // var harga = tempproduk.hargatot
-        //Toast.makeText(context,harga.toString(),Toast.LENGTH_LONG).show()
-
-
-    }
-
-
+                } } } }
     private fun masukkin(){
         namapro.setText(Produk.namaproduk)
         hargapro.setText(Produk.hargajual.toString())
         jmlpro.setText(Produk.jumlah.toString())
         stnproduk.setText(Produk.satuanproduk)
-
     }
     private fun masukinpesan(){
-
         namapro.setText(Produk.namaproduk)
         hargapro.setText(Produk.hargapokok.toString())
         jmlpro.setText(Produk.jumlah.toString())

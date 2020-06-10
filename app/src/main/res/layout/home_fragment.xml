@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".home_fragment"
-        android:background="@drawable/a5">
+        android:background="@drawable/a6">
 
         <ImageView
             android:id="@+id/bg"
@@ -33,80 +33,219 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bg" />
 
-        <ImageButton
-            android:id="@+id/produkhome"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="120dp"
-            android:background="@drawable/bggradient"
-            android:clickable="true"
-            app:layout_constraintEnd_toStartOf="@+id/buttonpelanggan"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bg"
-            app:srcCompat="@drawable/ic_produkhome" />
-
-        <ImageButton
-            android:id="@+id/buttonpelanggan"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="65dp"
-            android:background="@drawable/bggradient"
-            android:clickable="true"
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="412dp"
+            android:layout_height="150dp"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5"
-            app:srcCompat="@drawable/ic_pelanggan" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5">
 
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="59dp"
-            android:layout_marginEnd="72dp"
-            android:clickable="true"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="45dp"
+                android:layout_marginBottom="0dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/produkhome"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@drawable/bggradient"
+                        android:clickable="true"
+                        app:srcCompat="@drawable/ic_produkhome" />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="Produk"
+                        android:textAppearance="@style/TextAppearance.Usaha.Info" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="127dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="90dp"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/buttonpelanggan"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/bggradient"
+                        android:clickable="true"
+                        app:srcCompat="@drawable/ic_pelanggan" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:gravity="center_horizontal"
+                        android:text="Pelanggan"
+                        android:textAppearance="@style/TextAppearance.Usaha.Info" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"></LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginBottom="0dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/penjualanhome"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/bggradient"
+                        android:clickable="true"
+                        app:srcCompat="@drawable/ic_pengeluaran" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="Penjualan"
+                        android:textAppearance="@style/TextAppearance.Usaha.Info" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="100dp"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/supplierrrr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/bggradient"
+                        app:srcCompat="@drawable/ic_supplier" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:text="Supplier"
+                        android:textAppearance="@style/TextAppearance.Usaha.Info" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/penjualanhome"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/ic_info" />
-
-        <ImageButton
-            android:id="@+id/penjualanhome"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="65dp"
-            android:background="@drawable/bggradient"
-            android:clickable="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonpelanggan"
-            app:srcCompat="@drawable/ic_pengeluaran" />
-
-        <ImageButton
-            android:id="@+id/supplierrrr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/bggradient"
-            app:layout_constraintEnd_toStartOf="@+id/penjualanhome"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/produkhome"
-            app:srcCompat="@drawable/ic_supplier" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+            app:layout_constraintVertical_bias="0.0">
 
-        <ImageButton
-            android:id="@+id/pembelianhome"
-            android:layout_width="101dp"
-            android:layout_height="98dp"
-            android:layout_marginStart="72dp"
-            android:layout_marginBottom="68dp"
-            android:background="@drawable/bggradient"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageView6"
-            app:layout_constraintHorizontal_bias="0.013"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/supplierrrr"
-            app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@drawable/ic_shopping_cart" />
+            <LinearLayout
+                android:layout_width="330dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginBottom="0dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/pembelianhome"
+                        android:layout_width="101dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/bggradient"
+                        app:srcCompat="@drawable/ic_shopping_cart" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="Pembelian"
+                        android:textAppearance="@style/TextAppearance.Usaha.Info" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="75dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/information"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:clickable="true"
+                        app:srcCompat="@drawable/ic_info" />
+
+                    <TextView
+                        android:layout_width="137dp"
+                        android:layout_height="wrap_content"
+
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:text="Informasi"
+                        android:textAppearance="@style/TextAppearance.Usaha.Info" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

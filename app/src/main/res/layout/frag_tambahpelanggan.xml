@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context="com.example.usahaku.fragment_tambahpelanggan"
-        android:background="@drawable/a9">
-
+        android:background="@drawable/a14">
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_marginTop="18dp"
@@ -28,7 +24,6 @@
                     android:layout_height="100dp"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/ic_pelanggan" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -36,50 +31,40 @@
                     android:text="@string/app_name"
                     android:fontFamily="@font/moon"
                     android:textAppearance="@style/TextAppearance.Usaha.Title" />
-
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="24dp"
-
                     app:cardBackgroundColor="@color/mtrl_on_primary_disabled">
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="16dp"
                         android:orientation="vertical">
-
                         <TextView
                             android:id="@+id/textView"
                             style="@style/TextAppearance.Usaha.Text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Nama Pelanggan" />
-
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
-
                             <com.google.android.material.textfield.TextInputEditText
-
                                 android:id="@+id/namapelanggan"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@color/textInputOutlineColor" />
                         </com.google.android.material.textfield.TextInputLayout>
-
                         <TextView
                             android:id="@+id/textView2"
                             style="@style/TextAppearance.Usaha.Text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Email" />
-
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
-
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/emailpelanggan"
                                 android:layout_width="match_parent"
@@ -87,19 +72,15 @@
                                 android:background="@color/textInputOutlineColor"
                                 android:inputType="textEmailAddress"/>
                         </com.google.android.material.textfield.TextInputLayout>
-
                         <TextView
                             android:id="@+id/textView3"
                             style="@style/TextAppearance.Usaha.Text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Nomer Telepon" />
-
                         <com.google.android.material.textfield.TextInputLayout
-
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
-
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/notelppel"
                                 android:layout_width="match_parent"
@@ -107,28 +88,20 @@
                                 android:background="@color/textInputOutlineColor"
                                 android:inputType="number" />
                         </com.google.android.material.textfield.TextInputLayout>
-
                         <TextView
                             style="@style/TextAppearance.Usaha.Text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Alamat" />
-
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
-
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/alamatpelanggan"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@color/textInputOutlineColor"
-                                android:hint=""
-                               />
+                                android:background="@color/textInputOutlineColor" />
                         </com.google.android.material.textfield.TextInputLayout>
-
-
-
                         <Button
                             android:id="@+id/savepelanggan"
                             style="@style/Widget.Usaha.Button"
@@ -136,13 +109,9 @@
                             android:layout_height="match_parent"
                             android:background="@color/design_default_color_secondary"
                             android:text="SIMPAN" />
-
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-            </LinearLayout>
-        </ScrollView>
-
-    </LinearLayout>
-
-</layout>
+                        </LinearLayout>
+                      </androidx.cardview.widget.CardView>
+                     </LinearLayout>
+                 </ScrollView>
+                </LinearLayout>
+            </layout>

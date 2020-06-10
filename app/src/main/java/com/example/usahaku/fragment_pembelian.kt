@@ -20,26 +20,14 @@ import com.example.usahaku.Database.pembelianviewmodel
 import com.example.usahaku.databinding.FragPembelianBinding
 import kotlinx.android.synthetic.main.frag_pembelian.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [fragment_pembelian.newInstance] factory method to
- * create an instance of this fragment.
- */
 class fragment_pembelian : Fragment() {
 
     private lateinit var binding: FragPembelianBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
         }
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -48,10 +36,8 @@ class fragment_pembelian : Fragment() {
         // Inflate the layout for this fragment
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         rv_beli.layoutManager = LinearLayoutManager(this.requireContext())
         rv_beli.setHasFixedSize(true)
         val adapter = pembelianadapter()
@@ -67,7 +53,6 @@ class fragment_pembelian : Fragment() {
                 override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
                     return false
                 }
-
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                     AlertDialog.Builder(viewHolder.itemView.getContext())
                         // Judul
@@ -88,22 +73,12 @@ class fragment_pembelian : Fragment() {
         ).attachToRecyclerView(rv_beli)
         adapter.setOnItemClickListener(object : pembelianadapter.OnItemClickListener {
             override fun onItemClick(pembelian: pembelian) {
-                //penjualan
-               // Toast.makeText(context,"hai="+penjualan.produk, Toast.LENGTH_SHORT).show()
-
                 var beli = pembelian(pembelian.namasupplierp,pembelian.produkdes,pembelian.tanggalpesan,pembelian.totalpembelian)
-
                 fragmentdialog_upbeli(beli).show(childFragmentManager,"")
-
-
-
             }
         })
-
-
         binding.buttonAddbeli.setOnClickListener{
             it.findNavController().navigate(R.id.action_fragment_pembelian_to_frag_tambahpembelian)
         }
-
     }
 }
